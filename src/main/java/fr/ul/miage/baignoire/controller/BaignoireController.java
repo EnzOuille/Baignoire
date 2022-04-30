@@ -9,6 +9,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.FlowPane;
 
+import java.time.Duration;
+import java.time.Instant;
 import java.util.ArrayList;
 
 public class BaignoireController {
@@ -41,6 +43,8 @@ public class BaignoireController {
     private ProgressService progressFuite;
     private ProgressService progressFuite2;
     private Baignoire baignoire;
+
+    private Instant startTime;
 
     @FXML
     private void initialize() {
@@ -95,6 +99,7 @@ public class BaignoireController {
                 }
                 remplissageService.start();
                 fuiteService.start();
+                this.startTime = Instant.now();
             } else {
                 this.console.setText("VEUILLEZ SAISIR CORRECTEMENT LES VALEURS");
             }
@@ -102,7 +107,10 @@ public class BaignoireController {
         this.stop.setOnAction(e -> {
             stopServices();
             this.console.setText("");
-            this.console.appendText("SIMULATION TERMINEE \n");
+            if (this.startTime != null){
+                this.console.appendText(String.format("Simulation Terminée - Durée du remplissage : %d secondes \n", Duration.between(startTime, Instant.now()).toSeconds()));
+                this.startTime = null;
+            }
             this.console.appendText(String.format("Volume final de la baignoire : %d \n", this.baignoire.getVolumeActuel()));
             this.console.appendText(String.format("Eau consommée totale : %d \n", this.baignoire.getConso()));
             this.console.appendText(String.format("Eau qui a débordée : %d \n", this.baignoire.getDebordage()));
