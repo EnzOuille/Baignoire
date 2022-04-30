@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.ul.miage.baignoire.controller.BaignoireController">
+   <top>
+      <GridPane BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="TP5 - Baignoire" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER">
+               <font>
+                  <Font size="23.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </Label>
+            <Label text="Volume de la baignoire" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label text="Débit du robinet de remplissage" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="volumeBaignoire" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </TextField>
+            <TextField fx:id="debitRobinet" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <Label text="Nombre de trous" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+               <graphic>
+                  <Spinner fx:id="nbTrous" editable="true" />
+               </graphic>
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="start" mnemonicParsing="false" text="Lancer la simulation" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </Button>
+            <Button fx:id="stop" mnemonicParsing="false" text="Arrêter la simulation" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="6">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </Button>
+            <FlowPane fx:id="trous" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.rowSpan="2" GridPane.vgrow="ALWAYS" />
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </GridPane>
+   </top>
+   <bottom>
+      <TextArea fx:id="console" prefHeight="100.0" BorderPane.alignment="CENTER" />
+   </bottom>
+   <center>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="425.0" prefWidth="1001.0" BorderPane.alignment="CENTER">
+         <children>
+            <ProgressBar fx:id="baignoireProgress" cache="true" layoutX="424.0" layoutY="21.0" prefHeight="448.0" prefWidth="175.0" progress="0.1" rotate="-90.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="39.0" layoutX="405.0" layoutY="44.0" stroke="BLACK" strokeType="INSIDE" width="202.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="25.0" layoutX="404.0" layoutY="19.0" stroke="BLACK" strokeType="INSIDE" width="30.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="RED" height="25.0" layoutX="577.0" layoutY="19.0" stroke="BLACK" strokeType="INSIDE" width="30.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="27.0" layoutX="480.0" layoutY="89.0" rotate="90.0" stroke="BLACK" strokeType="INSIDE" width="49.0" />
+            <ProgressBar fx:id="fuiteProgress" cache="true" layoutX="485.0" layoutY="340.0" prefHeight="15.0" prefWidth="32.0" progress="0.4" rotate="90.0" />
+            <ProgressBar fx:id="fuiteProgress2" cache="true" layoutX="487.0" layoutY="135.0" prefHeight="15.0" prefWidth="32.0" progress="0.4" rotate="90.0" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
